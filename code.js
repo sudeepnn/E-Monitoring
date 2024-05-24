@@ -1,5 +1,5 @@
 var xhr = new XMLHttpRequest();
-xhr.open("GET", "https://api.thingspeak.com/channels/2524856/feeds.json?api_key=7KIFMGQNF85Z1VH2&results=2", true);
+xhr.open("GET", "https://api.thingspeak.com/channels/2524856/feeds.json?api_key=7KIFMGQNF85Z1VH2", true);
 xhr.onreadystatechange = function () {
     if (xhr.readyState == 4 && xhr.status == 200) {
         // Parse the JSON response
@@ -7,6 +7,7 @@ xhr.onreadystatechange = function () {
         
         // Extract the relevant data (assuming the structure of the response)
         var feeds = response.feeds;
+        feeds.reverse();
         var dataContainer = document.getElementById('data')
         console.log(feeds)
         // var dataString = "";
